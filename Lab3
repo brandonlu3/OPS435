@@ -1,0 +1,140 @@
+#a
+#!/usr/bin/env python3
+
+# return_text_value() function
+
+def return_text_value():
+    name = 'Terry'
+    greeting = 'Good Morning ' + name
+    return greeting
+
+# return_number_value() function
+
+def return_number_value():
+    num1 = 10
+    num2 = 5
+    num3 = num1 + num2
+    return num3
+
+
+# Main Program
+
+
+if __name__ == '__main__':
+    print('python code')
+    text = return_text_value()
+    print(text)
+    number = return_number_value()
+    print(str(number))
+    
+    
+#b
+#!/usr/bin/env python3
+
+def sum_numbers(number1, number2):
+    return int(number1) + int(number2)
+
+def subtract_numbers(number1, number2):
+    return int(number1) - int(number2)
+    # Remember to make sure the function accepts 2 arguments
+
+def multiply_numbers(number1, number2):
+    return int(number1) * int(number2)
+    # Remember to make sure the function accepts 2 arguments
+
+if __name__ == '__main__':
+    print(sum_numbers(10, 5))
+    print(subtract_numbers(10, 5))
+    print(multiply_numbers(10, 5))
+
+
+#c
+#!/usr/bin/env python3
+
+def operate(number1, number2, operator):
+    if operator == 'add':
+        return int(number1) + int(number2)
+    elif operator == 'subtract':
+        return int(number1) - int(number2)
+    elif operator == 'multiply':
+        return int(number1) * int(number2)
+    else:
+        return 'Error: function operator can be "add", "subtract", or "multiply"'
+
+if __name__ == '__main__':
+    print(operate(10, 5, 'add'))
+    print(operate(10, 5, 'subtract'))
+    print(operate(10, 5, 'multiply'))
+print(operate(10, 5, 'divide'))
+
+
+#d
+#!/usr/bin/env python3
+
+import subprocess
+
+def free_space():
+    p = subprocess.Popen(["df -h | grep '/$' | awk '{print $4}'"], stdout=subprocess.PIPE, stdin=subprocess.PIPE, stderr=subprocess.PIPE, shell=True)
+    output = p.communicate()
+    stdout = output[0].decode('utf-8').strip()
+    return stdout
+
+print(free_space())
+
+
+#e
+#!/usr/bin/env python3
+
+my_list = [ 100, 200, 300, 'six hundred' ]
+
+
+def give_list():
+    return my_list
+
+def give_first_item():
+    return str(my_list[0])
+
+def give_first_and_last_item():
+    return [my_list[0], my_list[-1]]
+
+def give_second_and_third_item():
+    return [my_list[1], my_list[2]]
+
+if __name__ == '__main__':
+    print(give_list())
+    print(give_first_item())
+    print(give_first_and_last_item())
+    print(give_second_and_third_item())
+
+
+#f
+#!/usr/bin/env python3
+
+# Place my_list below this comment (before the function definitions)
+my_list = [ 1, 2, 3, 4, 5 ]
+
+
+def add_item_to_list(ordered_list):
+    # Appends new item to end of list with the value (last item + 1)
+    a = ordered_list[-1]
+    b = a + 1
+    ordered_list.append(b)
+    return ordered_list
+
+def remove_items_from_list(ordered_list, items_to_remove):
+    # Removes all values, found in items_to_remove list, from my_list
+    for number in items_to_remove:
+        for item in ordered_list:
+            if item == number:
+                ordered_list.remove(item)
+                
+
+# Main code
+if __name__ == '__main__':
+    print(my_list)
+    add_item_to_list(my_list)
+    add_item_to_list(my_list)
+    add_item_to_list(my_list)
+    print(my_list)
+    remove_items_from_list(my_list, [1,5,6])
+    print(my_list)
