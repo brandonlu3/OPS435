@@ -1,0 +1,88 @@
+#a
+#!/usr/bin/env python3
+
+name = 'Jon'
+age = 20
+#print('Hi ' + name + ', you are ' + str(age) + ' years old.')
+colour = input("Type in a colour and press enter: ")
+print('The colour I typed in is: ' + colour)
+
+
+#b
+#!/usr/bin/env python3
+
+name = input("Name: ")
+age = input("Age: ")
+print('Hi ' + name + ', you are ' + age + ' years old.')
+
+
+#c
+#!/usr/bin/env python3
+
+import sys
+
+name = sys.argv[1]
+age = sys.argv[2]
+print('Hi ' + name + ', you are ' + age + ' years old.')
+
+
+#d
+#!/usr/bin/env python3
+
+import sys
+
+if len(sys.argv) <= 2:
+    print('Usage: ' + sys.argv[0] + ' name age')
+    sys.exit()
+
+name = sys.argv[1]
+age = sys.argv[2]
+
+if len(sys.argv) != 3:
+    print('Usage: ' + sys.argv[0] + ' ' + str('name') + ' ' + str('age'))
+    sys.exit()
+
+if len(sys.argv) == 3:
+    print('Hi ' + name + ', you are ' + age + ' years old.')
+    sys.exit()
+
+
+#e
+#!/usr/bin/env python3
+
+timer = 10
+while timer > 0:
+    print(timer)
+    timer = timer - 1
+print('blast off!')
+
+
+#f
+#!/usr/bin/env python3
+
+import sys
+
+timer = int(sys.argv[1])
+while timer > 0:
+    print(timer)
+    timer = timer - 1
+print('blast off!')
+
+
+#g
+#!/usr/bin/env python3
+
+import sys
+
+if len(sys.argv) > 1:
+    timer = int(sys.argv[1])
+    while timer > 0:
+        print(timer)
+        timer = timer -1
+    print('blast off!')
+else:
+    timer = 3
+    while timer > 0:
+        print(timer)
+        timer = timer -1
+    print('blast off!')
