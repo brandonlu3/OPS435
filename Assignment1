@@ -1,0 +1,195 @@
+#!/usr/bin/env python3
+
+'''
+OPS435 Assignment 1 - Summer 2019
+Program: a1_*SENECA ID*.py
+Author: *YOUR FULL NAME*
+The python code in this file (a1_*SENECA ID*.py) is original work written by
+*YOUR FULL NAME*. No code in this file is copied from any other source 
+except those provided by the course instructor, including any person, 
+textbook, or on-line resource. I have not shared this python script 
+with anyone or anything except for submission for grading.  
+I understand that the Academic Honesty Policy will be enforced and 
+violators will be reported and appropriate action will be taken.
+'''
+
+import os
+import sys
+
+def tomorrow(x):
+    '''
+    This function will take a string in YYYYMMDD format and provide the date of the next day.
+    '''
+    valid_date(x)   #Check if date is valid or not
+    year = int(x[0:4])
+    month = int(x[4:6])
+    day = int(x[6:])
+
+    mon_max = days_in_mon(year)
+
+    tmp_day = day + 1
+
+    if tmp_day > mon_max[month]:   #If the next day surpasses the max number of days in the month, change to next month
+        tmp_day = 1
+        month = month + 1
+        if month > 12:   #If the next month is greater than December, change to next year
+            month = 1
+            year = year + 1
+
+    next_day = str(year)+str(month).zfill(2)+str(tmp_day).zfill(2)
+
+    return next_day
+
+
+def yesterday(x):
+    '''
+    This function will take a string in YYYYMMDD format and provide the date of the previous day.
+    '''
+    valid_date(x)   #Check if date is valid or not
+    year = int(x[0:4])
+    month = int(x[4:6])
+    day = int(x[6:])
+
+    mon_max = days_in_mon(year)
+
+    tmp_day = day - 1
+
+    if tmp_day == 0:   #If the day is 0, change the month to the previous one
+        month = month -1
+        if month == 0:   #If the month is 0, change the year to the previous one
+            year = year - 1
+            month = 12
+            tmp_day = 31
+        else:   #Otherwise, the day will be the max day of the month
+            tmp_day = mon_max[month]
+
+    previous_day = str(year)+str(month).zfill(2)+str(tmp_day).zfill(2)
+
+    return previous_day
+
+
+def dbda(x,y):
+    '''
+    This function will take a string in YYYYMMDD format along with an integer. It will then calculate how many days the provided integer is from the date input in the string format. Otherwise, it will determine how many days it needs to add or subtract from the date provided in variable x.
+    '''
+    i = 0
+    count = 0
+    result = x
+    if len(str(y)) == 8:   #Check if y is a proper date
+        valid_date(y)
+        if y > x:   #Count the days in between if y > x
+            while result < y:
+                count += 1
+                result = tomorrow(result)
+        elif x > y:   #Count the days in between if x > y
+            while result > y:
+                count += 1
+                result = yesterday(result)
+        print(count)
+    else:   #If y is not a proper date
+        if int(y) > 0:
+            while int(y) > i:
+                i += 1
+                if sys.argv[1] == '--step':   #If first argument is '--step', print the results of the next days increasing by one.
+                    result = tomorrow(result)
+                    print(result)
+                else:
+                    result = tomorrow(result)
+        elif int(y) < 0:
+            while i > int(y):
+                i = i - 1
+                if sys.argv[1] == '--step':   #If first argument is '--step', print the results of the previous days decreasing by one.
+                    result = yesterday(result)
+                    print(result)
+                else:
+                    result = yesterday(result)
+        else:   #Otherwise the day is the same
+            result = result
+            
+        if sys.argv[1] == '--step':
+            print('', end='')   #Print new line and end on new line
+        else:
+            print(result)
+
+
+
+def days_in_mon(year_var):
+    '''
+    This function will calculate how many days are in each month for each year depending on if it is a leap year or not. It will create a dictionary and return it with all the months and how many days are in each month.
+    '''
+
+    if leap_year(year_var):   #This will be a leap year
+        feb = 29
+    else:   #This will not be a leap year
+        feb = 28
+
+    mon_max = { 1:31, 2:feb, 3:31, 4:30, 5:31, 6:30, 7:31, 8:31, 9:30, 10:31, 11:30, 12:31}   #The max number of days in each month
+    
+    return mon_max
+
+
+
+def leap_year(year_var):
+    '''
+    This function will take a year and check if the year provided is a leap year. If it returns true, it is a leap year. If it returns false, it is not a leap year.
+    '''
+    if (year_var % 4 == 0):   #Leap year divisible by 4
+        if (year_var % 100 == 0):   #Leap year not divisble by 100
+            if (year_var % 400 == 0):   #Leap year divisible by 400
+                leapyear = True
+            else:
+                leapyear = False
+        else:
+            leapyear = True
+    else:
+        leapyear = False
+    return leapyear
+                
+
+
+def valid_date(x):
+    '''
+    This function will take a string in YYYYMMDD format and check if the date provided is valid. If it returns true, the date is valid. If it returns false, the date is invalid.
+    '''
+    if (len(x) != 8):   #Check to see if x has a proper amount of numbers
+        print('Error: wrong date entered')
+        sys.exit()
+    else:
+        year = int(x[0:4])
+        month = int(x[4:6])
+        day = int(x[6:])
+        mon_max = days_in_mon(year)
+
+        if month not in mon_max.keys():   #Check to see if month is in between 1 and 12
+            print('Error: wrong month entered')
+            sys.exit()
+        else:   #Check to see if day fits in corresponding month
+            day_max = mon_max[month]
+            if day not in range (1,day_max + 1):
+                print('Error: wrong day entered')
+                sys.exit()
+
+
+def usage():
+    '''
+    This function will check to make sure there are the correct number of arguments otherwise it will exit the script and produce a usage error message.
+    '''
+
+    if ((len(sys.argv) != 3) and len(sys.argv) != 4):   #Check to see if there are 3 or 4 arguments
+        print(sys.argv[0] + ' [--step] YYYYMMDD +/-n')   #Otherwise print this message
+        sys.exit()
+
+
+
+### Main Function ###
+
+if __name__ == "__main__":
+    usage()   #Usage error if number of arguments is incorrect
+    if sys.argv[1] == '--step':   #If argument one is '--step', then arguments 2 and 3 will be x and y
+        x = sys.argv[2]
+        y = sys.argv[3]
+    else:   #If there is no '--step' argument, arguments 1 and 2 will be x and y
+        x = sys.argv[1]
+        y = sys.argv[2]
+
+dbda(x,y)
