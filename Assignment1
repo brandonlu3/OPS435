@@ -18,7 +18,8 @@ import sys
 
 def tomorrow(x):
     '''
-    This function will take a string in YYYYMMDD format and provide the date of the next day.
+    tomorrow() takes a valid date string in 'YYYYMMDD' format and returns a date string for the next day in 'YYYYMMDD' format.
+    e.g. tomorrow('20190101') -> '20190102'
     '''
     valid_date(x)   #Check if date is valid or not
     year = int(x[0:4])
@@ -43,7 +44,8 @@ def tomorrow(x):
 
 def yesterday(x):
     '''
-    This function will take a string in YYYYMMDD format and provide the date of the previous day.
+    yesterday() takes a valid date string in 'YYYYMMDD' format and returns a date string for the previous day in 'YYYYMMDD' format.
+    e.g. yesterday('20190102') -> '20190101'
     '''
     valid_date(x)   #Check if date is valid or not
     year = int(x[0:4])
@@ -70,7 +72,10 @@ def yesterday(x):
 
 def dbda(x,y):
     '''
-    This function will take a string in YYYYMMDD format along with an integer. It will then calculate how many days the provided integer is from the date input in the string format. Otherwise, it will determine how many days it needs to add or subtract from the date provided in variable x.
+    dbda() takes two valid date strings in 'YYYYMMDD' format and counts the number of days in between them. If that is not possible, then it takes a valid date string in 'YYYYMMDD' format and an integer (positive or negative) and returns a date either before or after the given date according to the value of the integer.
+    e.g. dbda('20180301', '20190301') -> 365
+         dbda('20190101', '1') -> '20190102'
+         dbda('20190102', '-1') -> '20190101'
     '''
     i = 0
     count = 0
@@ -115,7 +120,7 @@ def dbda(x,y):
 
 def days_in_mon(year_var):
     '''
-    This function will calculate how many days are in each month for each year depending on if it is a leap year or not. It will create a dictionary and return it with all the months and how many days are in each month.
+    days_in_mon() will take a year in 'YYYY' format and return a dictionary object which contains the total number of days in each month of the given year.
     '''
 
     if leap_year(year_var):   #This will be a leap year
@@ -131,7 +136,7 @@ def days_in_mon(year_var):
 
 def leap_year(year_var):
     '''
-    This function will take a year and check if the year provided is a leap year. If it returns true, it is a leap year. If it returns false, it is not a leap year.
+    leap_year() will take a year in 'YYYY' format and return True if the year given is a leap year and return False if the year given is not a leap year.
     '''
     if (year_var % 4 == 0):   #Leap year divisible by 4
         if (year_var % 100 == 0):   #Leap year not divisble by 100
@@ -149,7 +154,7 @@ def leap_year(year_var):
 
 def valid_date(x):
     '''
-    This function will take a string in YYYYMMDD format and check if the date provided is valid. If it returns true, the date is valid. If it returns false, the date is invalid.
+    valid_date() will take a date in 'YYYYMMDD' format and return True if the date given is a valid date and return False if the date given is not a valid date.
     '''
     if (len(x) != 8):   #Check to see if x has a proper amount of numbers
         print('Error: wrong date entered')
@@ -172,7 +177,7 @@ def valid_date(x):
 
 def usage():
     '''
-    This function will check to make sure there are the correct number of arguments otherwise it will exit the script and produce a usage error message.
+    usage() will not take an argument and returns a string describing the usage of the script if there is an error.
     '''
 
     if ((len(sys.argv) != 3) and len(sys.argv) != 4):   #Check to see if there are 3 or 4 arguments
