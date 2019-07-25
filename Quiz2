@@ -1,0 +1,117 @@
+Question 1:
+Write a function called average() to calculate and return the average of a list of numbers. The function should take a list of numbers as its only argument and return the average value of all the numbers in the list. 
+
+Please use the following template for your python script to define the average() function and name it as q2.py. Replace [student_id] with your Seneca email user name. You are allowed to use any built-in functions in the average() function.
+
+#!/usr/bin/env python3
+'''Name: [student_id]
+'''
+
+def average(int_list):
+   '''Calculate and return the average of a list'''
+    avg = 0
+    ###
+    [insert your code for the function here]
+    ###
+    return avg
+
+if __name__ == '__main__':
+    a_list = [40, 3, 4, 12, 11]
+    print('Average of',a_list,'is',average(a_list))
+    b_list = [20, 5, 2, 6, 2]
+    print('Average of',b_list,'is',average(b_list))
+    c_list = [11, 21, 31]
+    print('Average of',c_list,'is',average(c_list))
+Sample run of the q2.py script:
+
+[rchan@centos7 pq2]$ ./q2.py
+Average of [40, 3, 4, 12, 11] is 14.0
+Average of [20, 5, 2, 6, 2] is 7.0
+Average of [11, 21, 31] is 21.0
+Sample run with import under Python interactive shell:
+
+[rchan@centos7 pq2]$ python3
+>>> import q2
+>>> my_list = [12, 22, 32]
+>>> print(q2.average(my_list))
+22.0
+
+
+Question 2:
+Consider the following Python function h2i() :
+
+def h2i(obj):
+        source = str(obj).lower()
+        temp = '0'
+        target = '0123456789abcdef'
+        for c in source:
+            if c in target:
+               temp = temp + c
+        result = int(temp,16)
+        return result
+
+What type of object will be returned by the function h2i() if there are no runtime errors?
+
+
+Question 3:
+Consider the following Python function h2i() :
+
+def h2i(obj):
+        source = str(obj).lower()
+        temp = '0'
+        target = '0123456789abcdef'
+        for c in source:
+            if c in target:
+               temp = temp + c
+        result = int(temp,16)
+        return result
+
+If the string 'abcd' is passed as the function argument to the function h2i(), what would the contents of object c be right after the for loop?
+
+
+Question 4:
+Consider the following Python function h2i() :
+
+def h2i(obj):
+        source = str(obj).lower()
+        temp = '0'
+        target = '0123456789abcdef'
+        for c in source:
+            if c in target:
+               temp = temp + c
+        result = int(temp,16)
+        return result
+
+What is the purpose of the for loop in the function h2i()?
+
+
+Question 5:
+Consider the following Python function h2i() :
+
+def h2i(obj):
+        source = str(obj).lower()
+        temp = '0'
+        target = '0123456789abcdef'
+        for c in source:
+            if c in target:
+               temp = temp + c
+        result = int(temp,16)
+        return result
+
+What will be returned when the function h2i() is called with string object 'F'?
+
+
+Question 6:
+Consider the following Python function h2i() :
+
+def h2i(obj):
+        source = str(obj).lower()
+        temp = '0'
+        target = '0123456789abcdef'
+        for c in source:
+            if c in target:
+               temp = temp + c
+        result = int(temp,16)
+        return result
+
+What will be returned when the function h2i() is called with a list object ['10, The Pond Road', 'Toronto']?
