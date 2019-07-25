@@ -1,0 +1,95 @@
+a)
+#!/usr/bin/env python3
+
+# Store one IPv4 address
+class IPAddress:
+    # You probably want to construct it as a string, but you may want to store it as the four octets separately:
+    def __init__(self, address):
+        self.address = str(address)
+        ip = address.split('.')
+        Octet1 = ip.split[0]
+        Octet2 = ip.split[0]
+        Octet3 = ip.split[0]
+        Octet4 = ip.split[0]
+        
+    # Is this address from a private subnet? e.g. starting with 192.168. or 10.
+    def isPrivate():
+        if '192.168.' or '10.' in address:
+            print(address + ' is a private address')
+
+# Store information about a person, perhaps someone you'll be adding as a user to a system:
+class Person:
+    def __init__(self, person):
+        self.person = person
+
+    def adduser(self, first, last):
+        self.user[first] = last
+    
+
+# Store information about different models from a specific manufacturer. Perhaps how many seats they have and how much fuel they use and the price range:
+# Doesn't have to be BMW, pick any car or bike manufacturer:
+class BMWModel:
+    def __init__(self, model):
+        self.model = carbrand
+
+    def seatcount(self, seats):
+        self.seats = seat
+
+    def fuelprice(self, cost):
+        self.cost = cost
+    
+
+# Store information about a specific car that someone owns.
+# Spend some time thinking why this class is different than the one above, and whether it has to be different:
+class Car:
+    def __init__(self, car, seats):
+        self.car = modelname
+        self.seats = seats
+
+    def owner(self, car, owner):
+        self.info[owner] = car
+        
+        
+b)
+#!/usr/bin/env python3
+
+def function1():
+    # This variable 'a' is completely unrelated to the variable 'a' in function2():
+    a = 'Andrew 1'
+    print(a)
+
+def function2():
+    # This variable 'a' is completely unrelated to the variable 'a' in function1():
+    a = 'Andrew 2'
+    print(a)
+
+# Note that you cannot make any of the following print() functions work because neither of 
+# the variables '''a''' exist in this scope (outside the function where they were defined):
+a = 'Andrew 500'
+print(a)
+function1()
+print(a)
+function2()
+print(a)
+function1()
+function2()
+
+
+c)
+#!/usr/bin/env python3
+
+def function1():
+    global authorName
+    authorName = 'Andrew 1'
+    print(authorName)
+
+def function2():
+    authorName = 'Andrew 2'
+    print(authorName)
+
+authorName = 'Andrew'
+print(authorName)
+function1()
+print(authorName)
+function2()
+print(authorName)
