@@ -1,0 +1,68 @@
+Question 1:
+The following is the contents of the python file “student.py”:
+
+class Student:
+     def __init__(self, name, number, program):
+         programs = ['CNS', 'CTY']
+         self.name = name
+         self.number = number
+         self.courses = {}
+         if program in programs:
+             self.program = program
+         else:
+             self.program = 'unknown'
+
+     def displayStudent(self):
+         result = 'Student: '
+         result += self.name
+         result += '\n'
+         result += 'Student ID: '
+         result += self.number
+         return result
+         
+Update the Class definition of Student in “student.py” with the minimal changes so that the python codes on the left in the table when executed will produce the result as shown on the right in the table:
+Python code
+Output
+import student
+ray = student.Student('David','0987654321','CTY')
+print(ray.displayStudent())
+
+Name: David
+ID No: 0987654321
+Program: CTY
+Add a comment at the top of the python file to include your name and email account and upload the updated version of 'student.py' for grading.
+
+
+
+Question 2:
+Consider the class definition in the python file called “employee.py” :
+
+class Prof:
+     def __init__(self, name, eid, campus)
+         self.name = name
+         self.id = eid
+         sites = ['Newnham', 'King', 'Seneca@York', 'Markham', 'Peterborough']
+         if campus in sites:
+               self.campus = campus
+         else:
+               self.campus = 'Seneca'
+               
+(a) There is a single coding error in the python file, please fix it.
+(b) Add a class method called “displayInfo()” to the Prof class to display the name, id, campus location for all Prof object in the following format:
+Professor Name: xxxxxxx
+Employee ID: xxxxx
+Campus: xxxxx
+After the above two updates to the python file “employee.py”, the python codes on the left in the table when executed, it should produce the output shown on the right in the following table:
+Python code
+Output
+
+import employee
+prof = employee.Prof('Raymond','1234','York')
+print(prof.displayInfo())
+
+
+Professor Name: Raymond
+Employee ID: 1234
+Campus: Seneca
+
+Add a comment at the top of the python file to include your name and email account and upload the updated version of 'employee.py' for grading.
