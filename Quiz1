@@ -1,0 +1,43 @@
+Question 1:
+This is a Python script which calculates the Canada Child Benefit (ccb) for a family based on the number of children under the age of 6 and number of children aged 6-17 with an adjusted family net income of $30,450.00 or less. The contents of the Python script q1-1.py are as shown below:
+
+ #! /usr/bin/env python3
+ccb_u6 = 541
+ccb_6to17 = 456
+child_u6 = input('What is the number of children under the age of 6?')
+child_6to17 = input('What is the number of children aged 6 to 17?')
+ccb_total = ccb_u6 * child_u6 + ccb_6to17 * child_6to17
+print('The total Canada Child Benefit for the family is' + ccb_total)
+There are a few programming errors in the above script. Fix the errors so that when the above script is executed with the corresponding number of children provided by the use to the two input() functions, the following output will be produced:
+
+ [rchan@centos7 pq1]$ python3 q1-1.py
+What is the number of children under the age of 6?1 
+What is the number of children aged 6 to 17?0
+The total Canada Child Benefit for the family is 541 
+
+[rchan@centos7 pq1]$ python3 q1-1.py
+What is the number of children under the age of 6?0 
+What is the number of children aged 6 to 17?1
+The total Canada Child Benefit for the family is 456 
+
+[rchan@centos7 pq1]$ python3 q1-1.py
+What is the number of children under the age of 6?1 
+What is the number of children aged 6 to 17?1
+The total Canada Child Benefit for the family is 997
+
+
+Question 2:
+Write a Python script named “q1-2.py” to accept two arguments from the command line: the first one is an integer and the second is a single character. Print the given character the number of times as specified by the integer given on the command line. Below are the sample runs for the program with given command line arguments:
+
+./q1-2.py 3 '*'
+***
+
+./q1-2.py 8 '='
+========
+
+./q1-2.py 12 '+'
+++++++++++++
+Zero and negative numbers are not allowed - therefore you have to check whether the first command line argument is zero or negative. If it is zero or negative -print the error message as shown below and exit, without trying to perform the printing.
+
+./q1-2.py 0 '^'
+ValueError: the first argument must be greater than 0.
