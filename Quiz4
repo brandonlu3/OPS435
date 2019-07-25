@@ -1,0 +1,69 @@
+Question 1:
+Write a Python script named pq4.py to accept command line argument for the name of a file to be opened and read. Use exception error handling to provide an error message if the specific file name (display that exact name) does not exist; otherwise, open the file for reading and display the entire contents of the file (line-by-line excluding blank lines).
+
+The file named pq4_file.txt contains the following information:
+The Zen of Python, by Tim Peters
+ 
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+
+The current working directory contains the following files:
+
+[rchan@centos7 pq4]$ ls -l
+total 8
+--w--w----. 1 rchan rchan 0 Nov 5 13:23 def.txt
+-rw-rw-r--. 1 rchan rchan 858 Nov 5 13:12 pq4_file.txt
+-rw-rw-r--. 1 rchan rchan 421 Nov 5 13:25 pq4.py
+
+You may not have the file named def.txt in the current working directory, please create it with the file permissions shown above.
+
+The followings are the test runs of the script and its output.
+
+Test run 1:
+[rchan@centos7 pq4]$ python3 pq4.py abc.txt
+File Error: File abc.txt does not exist.
+
+Test run 2:
+[rchan@centos7 pq4]$ python3 pq4.py def.txt
+File Error: Do not have permission to read def.txt
+
+Test run 3:
+[rchan@centos7 pq4]$ python3 pq4.py pq4_file.txt
+The Zen of Python, by Tim Peters
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+Readability counts.
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!
+Total number of lines (excluding blank lines) in file: 20
