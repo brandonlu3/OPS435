@@ -1,0 +1,52 @@
+Question 1:
+Write a Python script (named q3.py) that:
+
+Uses only Python built-in functions, and functions and objections in the sys module.
+Allow the user to provide a nine-letter word at the command line.
+If it is not a nine-letter word, print the 5 odd-numbered letters in the same case and order as originally provided by the user at the command line, and also print those five letters in reversed order on the next line.
+The following shows three sample runs of the script:
+
+[rchan@centos7 pq3]$ ./q3.py seneca
+Sorry, Seneca has only 6 letters.
+Please supply a nine-letter word.
+
+[rchan@centos7 pq3]$ ./q3.py a
+Sorry, a has only 1 letter.
+Please supply a nine-letter word.
+
+[rchan@centos7 pq3]$ ./q3.py algorithm
+Thank you for your co-operation.
+Here is the enter code: agrtm
+And the exit code is: mtrga
+
+
+Question 2:
+Download the following Python module: c3.pyc
+
+This module contains at least two functions. Start an interactive Python shell, import the module using the command "import c3", and use the built-in functions we learned during the first few weeks of this course to explore functions defined in that module and find the answer to the following question:
+
+What is the name of the function which maps letter grade to value?
+
+
+Question 3:
+Download the following Python module: c3.pyc
+
+This module contains at least two functions. Start an interactive Python shell, import the module using the command "import c3", and use the built-in functions we learned during the first few weeks of this course to explore functions defined in that module and find the answer to the following question:
+
+What value will the function named in Q2 return for a latter grade of 'B'?
+
+
+Question 4:
+Download the following Python module: c3.pyc
+
+This module contains at least two functions. Start an interactive Python shell, import the module using the command "import c3", and use the built-in functions we learned during the first few weeks of this course to explore functions defined in that module and find the answer to the following question:
+
+What is the name of the function which calculates and returns grade point averages for a given list of grades?
+
+
+Question 5:
+Download the following Python module: c3.pyc
+
+This module contains at least two functions. Start an interactive Python shell, import the module using the command "import c3", and use the built-in functions we learned during the first few weeks of this course to explore functions defined in that module and find the answer to the following question:
+
+Which of the following types of objects will the function named in Q4 accept without triggering any errors?
